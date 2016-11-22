@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Exam1Ev</string>
+    <string name="actividad1">ACTIVITY1</string>
+    <string name="actividad2">ACTIVITY2</string>
+    <string name="actividad3">ACTIVITY3</string>
+    <string name="actividadNoImplementada">Activity not implemented</string>
+    <string name="salir">EXIT</string>
+</resources>

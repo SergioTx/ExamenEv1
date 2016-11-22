@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ExamenEv1</string>
+    <string name="actividad1">ACTIVIDAD1</string>
+    <string name="actividad2">ACTIVIDAD2</string>
+    <string name="actividad3">ACTIVIDAD3</string>
+    <string name="salir">SALIR</string>
+    <string name="actividadNoImplementada">Actividad no implementada</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
