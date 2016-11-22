@@ -96,7 +96,6 @@ public class Actividad1 extends AppCompatActivity {
 
                         Intent i = new Intent(Actividad1.this, Actividad1b.class);
                         i.putExtra("nombre", txt_nombre.getText().toString());
-                        //FIXME arreglar spinner y descomentar
                         i.putExtra("provincia", spinner.getSelectedItem().toString());
                         i.putExtra("conocimientos", conocimientos);
                         i.putExtra("sexo", sexo);

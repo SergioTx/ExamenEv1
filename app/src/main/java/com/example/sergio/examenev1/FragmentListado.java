@@ -2,6 +2,7 @@ package com.example.sergio.examenev1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,22 +24,23 @@ public class FragmentListado extends Fragment {
 
     //TODO cambiar por otras más adelante si hay tiempo
     private Localidad[] localidads = {
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
-            new Localidad("Añana","aniana_salinas","157","21,92","www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com"),
+            new Localidad("Añana","aniana_salinas","157","21,92","http://www.aniana.com")
     };
 
     private ListView lstListado;
@@ -59,12 +61,11 @@ public class FragmentListado extends Fragment {
         lstListado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-                if (listener != null){
+                Log.i("log","llamar a la web");
                     Localidad l = (Localidad) lstListado.getAdapter().getItem(pos);
                     String web = l.getWeb();
-                    //TODO llamar a la web
-                    Log.i("log","llamar a la web");
-                }
+                    Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse(web));
+                    startActivity(i);
             }
         });
     }
