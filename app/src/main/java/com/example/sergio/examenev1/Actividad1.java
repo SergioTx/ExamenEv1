@@ -15,10 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class Actividad1 extends AppCompatActivity {
 
     private Spinner spinner;
-    private TextView txt_num1, txt_num2;
+    private TextView txt_num1, txt_num2, txt_candidatos;
     private EditText txt_nombre, txt_resultado;
     private Button evaluar;
     private CheckBox chk_php, chk_java, chk_html, chk_css;
@@ -33,6 +35,7 @@ public class Actividad1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad1);
 
+        txt_candidatos = (TextView) findViewById(R.id.txt_candidatos);
         txt_nombre = (EditText) findViewById(R.id.txt_nombre);
         txt_resultado = (EditText) findViewById(R.id.txt_resultado);
         chk_css = (CheckBox) findViewById(R.id.chk_css);
@@ -43,8 +46,8 @@ public class Actividad1 extends AppCompatActivity {
 
         //cargar el spinner
         spinner = (Spinner) findViewById(R.id.spinner_provincias);
-        final String[] provincias = {"Alava", "Vizcaya", "Guipuzcoa"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
+        final String[] PROVINCIAS = {"Alava", "Vizcaya", "Guipuzcoa"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,PROVINCIAS);
         spinner.setAdapter(adapter);
 
         //suma
@@ -92,9 +95,9 @@ public class Actividad1 extends AppCompatActivity {
                         }
 
                         Intent i = new Intent(Actividad1.this, Actividad1b.class);
-                        i.putExtra("nombre", txt_nombre.getText());
+                        i.putExtra("nombre", txt_nombre.getText().toString());
                         //FIXME arreglar spinner y descomentar
-                        //i.putExtra("provincia", spinner.getSelectedItem().toString());
+                        i.putExtra("provincia", spinner.getSelectedItem().toString());
                         i.putExtra("conocimientos", conocimientos);
                         i.putExtra("sexo", sexo);
                         startActivityForResult(i, 137);
@@ -105,8 +108,10 @@ public class Actividad1 extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
+
         if (requestCode == 137 && resultCode == RESULT_OK) {
-            candidatos++;
+            Log.i("RESULT","Entra en activityResult");
+            txt_candidatos.setText("Candidatos: " + ++candidatos);
             if (candidatos >= 4) {
                 evaluar.setText("SALIR");
                 evaluar.setOnClickListener(new View.OnClickListener() {

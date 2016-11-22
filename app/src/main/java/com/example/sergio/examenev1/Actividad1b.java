@@ -24,7 +24,7 @@ public class Actividad1b extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         nombre.setText("Nombre: " + extras.getString("nombre"));
         //FIXME arreglar spinner y descomentar
-        //provincia.setText("Provincia: " + extras.getString("provincia"));
+        provincia.setText("Provincia: " + extras.getString("provincia"));
         sexo.setText("Sexo: " + extras.getString("sexo"));
         conocimiento.setText("Conocimiento: " + extras.getString("conocimientos"));
 
@@ -40,7 +40,7 @@ public class Actividad1b extends AppCompatActivity {
         });
 
         Button mal = (Button) findViewById(R.id.btn_mal);
-        ok.setOnClickListener(new View.OnClickListener() {
+        mal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
